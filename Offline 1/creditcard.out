@@ -1,0 +1,152 @@
+Running creditcard
+Running Decision Tree
+****Start Training****
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+Accuracy		100.0%
+Sensitivity		100.0%
+Specificity		100.0%
+precision		100.0%
+False Discovery Rate	0.0%
+F1 score		100.0%
+
+
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+Accuracy		100.0%
+Sensitivity		100.0%
+Specificity		100.0%
+precision		100.0%
+False Discovery Rate	0.0%
+F1 score		100.0%
+
+
+Running Decision Tree
+---k=5---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 5----
+Accuracy		99.481486000122%
+Sensitivity		82.29166666666666%
+Specificity		99.89380973202574%
+precision		94.8948948948949%
+False Discovery Rate	5.105105105105105%
+F1 score		88.14504881450488%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 5----
+Accuracy		98.68260551353988%
+Sensitivity		57.407407407407405%
+Specificity		99.79954898521673%
+precision		88.57142857142857%
+False Discovery Rate	11.428571428571429%
+F1 score		69.66292134831461%
+---k=10---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 10----
+Accuracy		99.62788995302874%
+Sensitivity		85.67708333333334%
+Specificity		99.96252108189142%
+precision		98.2089552238806%
+False Discovery Rate	1.791044776119403%
+F1 score		91.51599443671766%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 10----
+Accuracy		98.56062454257136%
+Sensitivity		50.0%
+Specificity		99.87471811576046%
+precision		91.52542372881356%
+False Discovery Rate	8.47457627118644%
+F1 score		64.67065868263472%
+---k=15---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 15----
+Accuracy		99.74989324711767%
+Sensitivity		90.88541666666666%
+Specificity		99.96252108189142%
+precision		98.30985915492958%
+False Discovery Rate	1.6901408450704223%
+F1 score		94.45196211096076%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 15----
+Accuracy		98.56062454257136%
+Sensitivity		50.0%
+Specificity		99.87471811576046%
+precision		91.52542372881356%
+False Discovery Rate	8.47457627118644%
+F1 score		64.67065868263472%
+---k=20---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 20----
+Accuracy		99.87799670591106%
+Sensitivity		95.3125%
+Specificity		99.98750702729714%
+precision		99.45652173913044%
+False Discovery Rate	0.5434782608695652%
+F1 score		97.3404255319149%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 20----
+Accuracy		98.7801902903147%
+Sensitivity		56.481481481481474%
+Specificity		99.92483086945627%
+precision		95.3125%
+False Discovery Rate	4.6875%
+F1 score		70.93023255813954%
+
+
+Runtime: 13.312521119912466 minutes

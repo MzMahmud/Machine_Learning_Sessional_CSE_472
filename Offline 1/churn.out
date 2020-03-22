@@ -1,0 +1,152 @@
+Running churn
+Running Decision Tree
+****Start Training****
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+Accuracy		97.95882144124955%
+Sensitivity		93.95134779750164%
+Specificity		99.44079747143203%
+precision		98.4159779614325%
+False Discovery Rate	1.5840220385674932%
+F1 score		96.13185334678775%
+
+
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+Accuracy		97.94180269694819%
+Sensitivity		93.96551724137932%
+Specificity		99.2459943449576%
+precision		97.61194029850746%
+False Discovery Rate	2.3880597014925375%
+F1 score		95.75402635431918%
+
+
+Running Decision Tree
+---k=5---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 5----
+Accuracy		78.34575789847355%
+Sensitivity		54.437869822485204%
+Specificity		87.18696814976903%
+precision		61.10701107011071%
+False Discovery Rate	38.8929889298893%
+F1 score		57.57997218358831%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 5----
+Accuracy		77.92760823278921%
+Sensitivity		56.03448275862068%
+Specificity		85.10838831291234%
+precision		55.240793201133144%
+False Discovery Rate	44.759206798866856%
+F1 score		55.63480741797432%
+---k=10---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 10----
+Accuracy		79.33972310969116%
+Sensitivity		52.00525969756738%
+Specificity		89.44809141745684%
+precision		64.57142857142857%
+False Discovery Rate	35.42857142857142%
+F1 score		57.61107064821559%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 10----
+Accuracy		79.27608232789211%
+Sensitivity		53.44827586206896%
+Specificity		87.7474081055608%
+precision		58.86075949367089%
+False Discovery Rate	41.139240506329116%
+F1 score		56.024096385542165%
+---k=15---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 15----
+Accuracy		79.60596379126731%
+Sensitivity		53.25443786982249%
+Specificity		89.35083880379285%
+precision		64.90384615384616%
+False Discovery Rate	35.09615384615385%
+F1 score		58.50487540628385%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 15----
+Accuracy		79.27608232789211%
+Sensitivity		53.44827586206896%
+Specificity		87.7474081055608%
+precision		58.86075949367089%
+False Discovery Rate	41.139240506329116%
+F1 score		56.024096385542165%
+---k=20---
+******Training*******
+****Training Done****
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 20----
+Accuracy		79.58821441249556%
+Sensitivity		57.06771860618014%
+Specificity		87.91636275224897%
+precision		63.589743589743584%
+False Discovery Rate	36.41025641025641%
+F1 score		60.15246015246015%
+
+
+*******Testing*******
+*****Testing Done*****
+
+*********Stat*********
+----K = 20----
+Accuracy		79.70191625266146%
+Sensitivity		59.195402298850574%
+Specificity		86.42789820923656%
+precision		58.857142857142854%
+False Discovery Rate	41.14285714285714%
+F1 score		59.02578796561605%
+
+
+Runtime: 4.406698787212372 minutes
