@@ -1,17 +1,17 @@
-##CSE472 (Machine Learning Sessional)
-------------------------------------
+CSE472 (Machine Learning Sessional)
+-----------------------------------
 
-###Assignment 1: Decision Tree and AdaBoost for Classification
----------------------------------------------
+Assignment 1: Decision Tree and AdaBoost for Classification
+-----------------------------------------------------------
 
-####Moaz Mahmud
-#####1505064
----------------------------------------------
+Moaz Mahmud
+1505064
+-----------
 
 
-####Telco-customer-churn
-------------------------
-#####Decision Tree
+Telco-customer-churn
+--------------------
+**Decision Tree**
 |Performance measure                                | Training            | Test                |
 |:--------------------------------------------------|:-------------------:|:-------------------:|
 |Accuracy                                           | 97.95882144124955 % | 97.94180269694819 % |
@@ -21,7 +21,7 @@
 |False discovery rate                               | 1.584022038567493 % | 2.388059701492537 % |
 |F1 score                                           | 96.13185334678775 % | 95.75402635431918 % |
 
-#####AdaBoost Accuracy
+**AdaBoost Accuracy**
 |Number of boosting rounds| Training            | Test                |
 |:------------------------|:-------------------:|:-------------------:|
 |5                        | 78.34575789847355 % | 77.92760823278921 % |
@@ -31,9 +31,9 @@
 
 
 
-####Adult
----------
-#####Decision Tree
+Adult
+-----
+**Decision Tree**
 |Performance measure                                | Training            | Test                |
 |:--------------------------------------------------|:-------------------:|:-------------------:|
 |Accuracy                                           | 96.11486486486487 % | 96.05404575464456 % |
@@ -43,7 +43,7 @@
 |False discovery rate                               | 3.852798894263994 % | 5.818965517241379 % |
 |F1 score                                           | 91.66529402075440 % | 91.07328933657520 % |
 
-#####AdaBoost Accuracy
+**AdaBoost Accuracy**
 |Number of boosting rounds| Training            | Test                |
 |:------------------------|:-------------------:|:-------------------:|
 |5                        | 83.26550982800983 % | 83.44848764010440 % |
@@ -53,20 +53,20 @@
 
 
 
-####Creditcard Fraud
---------------------
-#####Decision Tree
+Creditcard Fraud
+----------------
+**Decision Tree**
 |Performance measure                                | Training            | Test                |
 |:--------------------------------------------------|:-------------------:|:-------------------:|
-|Accuracy                                           | 98.81046788263284 % | 98.58502073676506 % |
-|True positive rate (sensitivity, recall, hit rate) | 49.47916666666667 % | 46.2962962962963 %  |
-|True negative rate (specificity)                   | 99.99375351364857 % | 100.0 %             |
-|Positive predictive value (precision)              | 99.47643979057592 % | 100.0 %             |
-|False discovery rate                               | 0.523560209424083 % | 0.0 %               |
-|F1 score                                           | 66.08695652173913 % | 63.29113924050633 % |
+|Accuracy                                           | 100.0 %             | 100.0 %             |
+|True positive rate (sensitivity, recall, hit rate) | 100.0 %             | 100.0 %             |
+|True negative rate (specificity)                   | 100.0 %             | 100.0 %             |
+|Positive predictive value (precision)              | 100.0 %             | 100.0 %             |
+|False discovery rate                               | 0.0 %               | 0.0 %               |
+|F1 score                                           | 100.0 %             | 100.0 %             |
 
 
-#####AdaBoost Accuracy
+**AdaBoost Accuracy**
 |Number of boosting rounds| Training            | Test                |
 |:------------------------|:-------------------:|:-------------------:|
 |5                        | 99.48148600012200 % | 98.68260551353988 % |
