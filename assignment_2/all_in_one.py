@@ -229,11 +229,14 @@ def kNN_predict(X_train, Y_train, X_test, k=3, distance_function=cosine_similari
 
 
 def kNN_performance_evaluation(
-    X_train, Y_train, X_test, Y_test, k_vals, distance_function
+    X_train, Y_train, X_test, Y_test, k_vals, distance_function, X_train_tf_idf=None
 ):
     # get the proper input format for distance function
     if distance_function == cosine_similarity:
-        X_train_tf_idf = [get_tf_idf_format(doc, X_train) for doc in X_train]
+        if X_train_tf_idf is None:
+            X_train_tf_idf = [get_tf_idf_format(doc, X_train) for doc in X_train]
+        else:
+            print("Already in TF-IDF")
         X_test = [get_tf_idf_format(doc, X_train) for doc in X_test]
         X_train = X_train_tf_idf
     else:
@@ -304,12 +307,19 @@ def kNN_validation():
 
 def get_accuracy_best_kNN():
     kNN_test_itr_accuracy = []
+
+    # As training Set is the same. Precalculate the TF-IDF for all iteration
+    if best_dist_func == cosine_similarity:
+        print("Processing TF-IDF...")
+        X_train_tf_idf = [get_tf_idf_format(doc, X_train) for doc in X_train]
+        print("DONE Processing TF-IDF.")
+
     for itr in range(n_iter):
         print(f"---Test---Iteration {itr + 1}---")
         input_file = f"test_itr_{itr}.in"
         X_test, Y_test = get_X_Y_from(input_file)
         accuracy_vals = kNN_performance_evaluation(
-            X_train, Y_train, X_test, Y_test, [best_k], best_dist_func
+            X_train, Y_train, X_test, Y_test, [best_k], best_dist_func, X_train_tf_idf
         )
         kNN_test_itr_accuracy.append(accuracy_vals[0])
     return kNN_test_itr_accuracy
@@ -497,13 +507,18 @@ topics_txt = os.path.join(os.path.join(os.getcwd(), "Data"), "topics.txt")
 # print(topics_txt)
 
 # Parameters: Preprocessing
-n_train = 50
-n_validation = 20
+n_train = 500
+n_validation = 200
 n_itr = 50
 n_test = n_itr * 10
 
+# print("n_train", n_train)
+# print("n_validation", n_validation)
+# print("n_test", n_test)
+
 # Run: pre processing
 # pre_processing()
+# print("DONE PREPROCESSING")
 
 
 # Parameters: input validation paths
@@ -512,10 +527,10 @@ validation_input_file = os.path.join(os.getcwd(), "validation.in")
 
 # get data
 X_train, Y_train = get_X_Y_from(train_input_file)
-# print("input",len(X_train), len(Y_train))
+print("Test Size: ", len(X_train))
 
 X_validation, Y_validation = get_X_Y_from(validation_input_file)
-# print("validation", len(X_validation), len(Y_validation))
+print("Validation Size: ", len(X_validation))
 
 # hyper parameters
 k_vals = [1, 3, 5]
@@ -523,15 +538,80 @@ functions = [hamming_distance, euclidean_distance, cosine_similarity]
 
 # Run: kNN Validation
 # kNN_validation()
-
+# print("DONE kNN Validation.")
+# Result from Colab
+# |                    | 1      | 3      | 5      |
+# |  ---               | ---    | ---    | ---    |
+# | hamming_distance   | 40.91% | 41.59% | 41.27% |
+# | euclidean_distance | 57.27% | 57.64% | 57.32% |
+# | cosine_similarity  | 81.23% | 83.50% | 83.68% **best|
 # Parameters: best kNN
 best_k = 5
-best_dist_func = hamming_distance  # testing ,NOT FINAL
+best_dist_func = cosine_similarity
 n_iter = 50
 
 # Run: test the best performing kNN
-kNN_test_itr_accuracy = get_accuracy_best_kNN()
-print("kNN_test_itr_accuracy", kNN_test_itr_accuracy)
+# print(f"Test {n_iter} Iterations")
+# kNN_test_itr_accuracy = get_accuracy_best_kNN()
+# print("best_k", best_k)
+# print("best_dist_func", best_dist_func.__name__)
+# print("kNN_test_itr_accuracy = ", kNN_test_itr_accuracy)
+# Result from Colab
+# best_k 5
+# best_dist_func cosine_similarity
+kNN_test_itr_accuracy = [
+    86.36363636363636,
+    88.18181818181819,
+    87.27272727272727,
+    82.72727272727273,
+    86.36363636363636,
+    88.18181818181819,
+    87.27272727272727,
+    87.27272727272727,
+    81.81818181818181,
+    82.72727272727273,
+    81.81818181818181,
+    85.45454545454545,
+    77.27272727272727,
+    80.0,
+    83.63636363636364,
+    76.36363636363636,
+    80.9090909090909,
+    78.18181818181819,
+    75.45454545454545,
+    78.18181818181819,
+    80.0,
+    88.18181818181819,
+    86.36363636363636,
+    79.0909090909091,
+    83.63636363636364,
+    83.63636363636364,
+    82.72727272727273,
+    78.18181818181819,
+    80.9090909090909,
+    80.0,
+    84.54545454545455,
+    81.81818181818181,
+    85.45454545454545,
+    82.72727272727273,
+    82.72727272727273,
+    80.0,
+    80.9090909090909,
+    78.18181818181819,
+    88.18181818181819,
+    89.0909090909091,
+    78.18181818181819,
+    88.18181818181819,
+    80.0,
+    80.9090909090909,
+    84.54545454545455,
+    83.63636363636364,
+    82.72727272727273,
+    80.9090909090909,
+    80.9090909090909,
+    84.54545454545455,
+]
+
 
 # Parameters: NB alphas
 # hyper parameters
@@ -540,16 +620,81 @@ alpha_vals = np.linspace(0.1, 1.0, num=10)
 
 # Run: NB validation
 # naive_bayes_validation()
-
+# Result from Colab
+# | 1 | 0.10 | 71.59% |
+# | 2 | 0.20 | 71.64% **best|
+# | 3 | 0.30 | 71.55% |
+# | 4 | 0.40 | 71.23% |
+# | 5 | 0.50 | 71.23% |
+# | 6 | 0.60 | 71.18% |
+# | 7 | 0.70 | 71.09% |
+# | 8 | 0.80 | 70.82% |
+# | 9 | 0.90 | 70.59% |
+# | 10 | 1.00 | 70.55% |
 # Parameters: best NB alpha
-best_alpha = 0.5  # testing not final
+best_alpha = 0.2
 
 # Run: best NB
-NB_test_itr_accuracy = get_accuracy_best_NB()
-print("NB_test_itr_accuracy", NB_test_itr_accuracy)
+# NB_test_itr_accuracy = get_accuracy_best_NB()
+# print("best_alpha",best_alpha)
+# print("NB_test_itr_accuracy = ", NB_test_itr_accuracy)
+# Result from colab
+# best_alpha 0.2
+NB_test_itr_accuracy = [
+    70.9090909090909,
+    79.0909090909091,
+    77.27272727272727,
+    70.9090909090909,
+    64.54545454545455,
+    72.72727272727273,
+    73.63636363636364,
+    76.36363636363636,
+    72.72727272727273,
+    70.0,
+    71.81818181818181,
+    75.45454545454545,
+    73.63636363636364,
+    67.27272727272727,
+    70.0,
+    71.81818181818181,
+    75.45454545454545,
+    71.81818181818181,
+    70.9090909090909,
+    72.72727272727273,
+    70.0,
+    75.45454545454545,
+    78.18181818181819,
+    76.36363636363636,
+    77.27272727272727,
+    78.18181818181819,
+    74.54545454545455,
+    77.27272727272727,
+    71.81818181818181,
+    78.18181818181819,
+    78.18181818181819,
+    77.27272727272727,
+    67.27272727272727,
+    70.0,
+    70.0,
+    72.72727272727273,
+    69.0909090909091,
+    73.63636363636364,
+    77.27272727272727,
+    82.72727272727273,
+    69.0909090909091,
+    79.0909090909091,
+    71.81818181818181,
+    69.0909090909091,
+    74.54545454545455,
+    80.0,
+    70.9090909090909,
+    69.0909090909091,
+    74.54545454545455,
+    74.54545454545455,
+]
 
 # Parameters: significances
 significances = [0.005, 0.01, 0.05]
 
 # Run: T-Test
-compare_with_t_test()
+# compare_with_t_test()
