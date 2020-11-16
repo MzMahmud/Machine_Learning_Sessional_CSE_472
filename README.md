@@ -46,13 +46,13 @@ We are to implement different machine learning algorithms from _scrach_.
 
 and the probability of generation of x from Gaussian distribution is given as,
 
-![](https://latex.codecogs.com/gif.latex?N_k(x_i|\mu_k,\Sigma_k)=\frac{1}{\sqrt{(2\pi)^D|\Sigma|}}e^{-\frac{1}{2}(x_i-\mu_k)^T\Sigma_k^{-1}(x_i-\mu_k))
+![](https://latex.codecogs.com/gif.latex?N_k(x_i|\mu_k,\Sigma_k)=\frac{1}{\sqrt{(2\pi)^D|\Sigma_k|}}e^{-\frac{1}{2}(x_i-\mu_k)^T\Sigma_k^{-1}(x_i-\mu_k))
 
 To learn a Gaussian mixture model using EM algorithm, we need to maximize the likelihood function with respect to the parameters. The steps are given below,
 1. Initialize the means,covariances and mixing coefficients and evaluate the initial value of the log likelihood.
 2. **E step**: Evaluate the conditional distribution of latent factors using the current parameter values,
 
-![](https://latex.codecogs.com/gif.latex?p_{ik}=p(z_i=k|x_i,\mu,\Sigma,w)=\frac{p(x_i|z_i=k,\mu,\Sigma,w)P(z_i=k|\mu,\Sigma,w)}{p(x_i|\mu,\Sigma,w)}=\frac{w_kN_k(x_i|\mu_k,\Sigma)}{\sum_{k=1}^{K}w_kN_k(x_i|\mu_k,\Sigma)})
+![](https://latex.codecogs.com/gif.latex?p_{ik}=p(z_i=k|x_i,\mu,\Sigma,w)=\frac{p(x_i|z_i=k,\mu,\Sigma,w)P(z_i=k|\mu,\Sigma,w)}{p(x_i|\mu,\Sigma,w)}=\frac{w_kN_k(x_i|\mu_k,\Sigma_k)}{\sum_{k=1}^{K}w_kN_k(x_i|\mu_k,\Sigma_k)})
 
 3. M step: Re-estimate the parameters using the conditional distribution of latent factors,
 
@@ -61,4 +61,4 @@ To learn a Gaussian mixture model using EM algorithm, we need to maximize the li
 
 4. Evaluate the log likelihood and check for convergence of the log likelihood. If the convergence criterion is not satisfied return to step 2.
 
-![](https://latex.codecogs.com/gif.latex?\ln&space;p(X|\mu,\Sigma,w)=\sum_{i=1}^{N}&space;\ln&space;p(x_i|\mu,\Sigma,w)=\sum_{i=1}^{N}&space;\ln&space;\sum_{k=1}^{K}w_kN_k(x_i|\mu,\Sigma))
+![](https://latex.codecogs.com/gif.latex?\ln&space;p(X|\mu,\Sigma,w)=\sum_{i=1}^{N}&space;\ln&space;p(x_i|\mu,\Sigma,w)=\sum_{i=1}^{N}&space;\ln&space;\sum_{k=1}^{K}w_kN_k(x_i|\mu_k,\Sigma_k))
